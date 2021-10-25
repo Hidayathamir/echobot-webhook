@@ -50,7 +50,7 @@ def main() -> None:
 
     # Start the Bot
     updater.start_webhook(listen="0.0.0.0",
-                      port='8442',
+                      port=8442,
                       url_path=environ["TOKEN"],
                       webhook_url="https://echobot-webhook.herokuapp.com/" + environ["TOKEN"])
     updater.idle()
