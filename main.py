@@ -35,8 +35,11 @@ def echo(update: Update, context: CallbackContext) -> None:
 
 def main() -> None:
     """Start the bot."""
+    TOKEN = environ['TOKEN']
+    PORT = environ.get('PORT', 8443)
+    print(PORT)
     # Create the Updater and pass it your bot's token.
-    updater = Updater(environ["TOKEN"])
+    updater = Updater(TOKEN)
 
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
@@ -50,9 +53,9 @@ def main() -> None:
 
     # Start the Bot
     updater.start_webhook(listen="0.0.0.0",
-                      port=environ.get('PORT', 8443),
-                      url_path=environ["TOKEN"],
-                      webhook_url="https://echobot-webhook.herokuapp.com/" + environ["TOKEN"])
+                      port=PORT,
+                      url_path=TOKEN,
+                      webhook_url="https://echobot-webhook.herokuapp.com/" + TOKEN)
     updater.idle()
 
 
