@@ -52,7 +52,7 @@ def main() -> None:
     updater.start_webhook(listen="0.0.0.0",
                       port='8443',
                       url_path=environ["TOKEN"],
-                      webhook_url="https://<appname>.herokuapp.com/" + environ["TOKEN"])
+                      webhook_url="https://echobot-webhook.herokuapp.com/" + environ["TOKEN"])
     updater.idle()
 
 
